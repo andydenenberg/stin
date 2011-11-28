@@ -1,0 +1,31 @@
+<div class="block" id="block-signup">  
+	<h2>Sign up</h2>
+  		<div class="content">	
+  			
+		<%= devise_error_messages! %>
+
+		<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+
+  			<p><div><%= f.label :email %><br />
+  			<%= f.email_field :email %></div></p>
+
+  			<p><div><%= f.label :password %><br />
+  			<%= f.password_field :password %></div></p>
+
+  			<p><div><%= f.label :password_confirmation %><br />
+  			<%= f.password_field :password_confirmation %></div></p>
+
+			<div class="group navform wat-cf">
+			  <button class="button" type="submit">
+			    <%= image_tag("web-app-theme/tick.png", :alt => "#{t("web-app-theme.NewReg", :default => "NewReg")}") %> <%= t("web-app-theme.save", :default => "Signup") %>
+			  </button>
+			
+		<% end %>
+
+		<br>
+		<br>
+		<p>
+		<%= render :partial => "devise/shared/links" %>
+		</p>
+	</div>
+</div>
