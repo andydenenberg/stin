@@ -1,0 +1,100 @@
+Data for the Site
+
+Organizaion records define the Organizations and Charities that are in need of support
+
+Table name: org
+
+organization:string
+division:string
+address:string
+city:string
+url:
+description:text
+background_selection:string
+contact:string
+phone:string
+logo:photo
+sponsor:string - who found the opportunity to help
+
+has_many donors
+has_many actions
+has_many activities - ways to help
+
+has_many donations
+
+Created with:
+rails generate scaffold org organization:string ....
+
+
+
+Activity records are list of activities that a donor can provide to an organization
+
+Table name: activity
+
+name:string
+description:string
+
+belongs_to org
+has_many donors
+
+Created with:
+rails generate scaffold activity name:string description:text org:references
+
+
+
+
+Donor records are the members of the site that giving their time and money to help those in need.
+
+Table name: donor
+
+first:string
+last:string
+address:string
+city:string
+facebook:string
+email comes from the devise user record
+description:text
+photo comes from paperclip
+
+has_many actions
+has_many orgs
+
+has_many donations
+
+Created with:
+rails generate scaffold donor first:string last:string .....
+
+
+
+
+Action records keep track of the acts of support by members to help an organization.
+
+Table name: action
+
+starttime:datetime
+endtime:datetime
+note:text
+impact:integer  - could be made into another dependant table?
+reward:integer
+
+belongs_to donor
+belongs_to org
+has_one activity
+
+
+
+
+
+Donation records keep track of gifts to an organization.  The gifts can be direct financial contributions or other material things like furniture, clothing, food, etc.
+Table name: donation
+item:string
+value:float
+description:text
+date:datetime
+impact:integer
+reward:integer
+
+belongs to orgs
+belongs to donor
+
+

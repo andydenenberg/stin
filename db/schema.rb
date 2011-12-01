@@ -11,7 +11,44 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111125224415) do
+ActiveRecord::Schema.define(:version => 20111130183657) do
+
+  create_table "activities", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "org_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "organization"
+    t.integer  "impact"
+    t.integer  "reward"
+    t.datetime "starttime"
+    t.datetime "endtime"
+  end
+
+  add_index "activities", ["org_id"], :name => "index_activities_on_org_id"
+
+  create_table "donors", :force => true do |t|
+    t.string   "first"
+    t.string   "last"
+    t.string   "address"
+    t.string   "city"
+    t.string   "facebook"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "orgs", :force => true do |t|
+    t.string   "organization"
+    t.string   "division"
+    t.string   "address"
+    t.string   "city"
+    t.text     "description"
+    t.text     "background"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false

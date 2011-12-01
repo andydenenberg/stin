@@ -24,7 +24,11 @@
         </ul>
       </div>
       <div id="main-navigation">
-        <ul class="wat-cf"></ul>
+        <ul class="wat-cf">
+          <li class="first"><%= link_to 'Donors', list_path %></li>
+          <li class="active"><%= link_to 'Activities', activities_path %></li>
+          <li class="active"><%= link_to 'Organizations', orgs_path %></li>
+        </ul>
       </div>
     </div>    
     <div id="wrapper" class="wat-cf">

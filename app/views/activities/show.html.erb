@@ -1,0 +1,31 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", activities_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_activity_path %></li>
+      <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Show")}", activity_path %></li>
+    </ul>
+  </div>          
+  <div class="content">
+    <div class="inner">
+      
+        <p><b>Name":</b>
+          <%= @activity.name %></p>
+        <p><b>Description:</b>
+          <%= @activity.description %></p>
+        <p><b>Org:</b>
+          <%= @activity.org_id %></p>
+        <p><b>Impact:</b>
+          <%= @activity.impact %></p>
+        <p><b>Reward:</b>
+          <%= @activity.reward %></p>
+
+      <div class="wat-cf">
+        <%= link_to image_tag("web-app-theme/application_edit.png", :alt => "Edit") + " " + "Edit", edit_activity_path(@activity), :class => "button" %> 
+        <%= link_to image_tag("web-app-theme/cross.png", :alt => "Delete") + " " + "Delete", activity_path(@activity), :method => "delete", :class => "button", :confirm => "Are you sure?" %>
+      </div>      
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

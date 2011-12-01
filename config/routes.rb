@@ -1,7 +1,15 @@
 ThemeG::Application.routes.draw do
+  resources :activities
+
+  resources :orgs
+
+  resources :donors
+
   devise_for :users
 
   get "home/index"
+  
+  match '/list' , :to => 'donors#list'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

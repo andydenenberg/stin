@@ -7,3 +7,22 @@
  */
 
 /* Write here your css for overriding the theme's rules */
+
+.pagination a, .pagination span {
+  border: 1px solid #c3c4ba;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  margin-right: 2px;	/* was 5px */
+  padding: 2px;			/* was 6px */
+  min-width: 15px;
+  text-align: center;
+  background: #dddddd;
+  background-image: url("images/button-background.png");
+  color: #111111;
+}
+.pagination span.current {
+  background: #261f1f;
+  color: white;
+  border: 4px solid #261f1f;  	/*  was 1px */
+}

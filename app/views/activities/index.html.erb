@@ -1,0 +1,25 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first active"><%= link_to "List", activities_path  %></li>
+      <li><%= link_to "New", new_activity_path %></li>
+    </ul>
+  </div>          
+  <div class="content">          
+    <h2 class="title">Activities</h2>
+
+
+
+    <div class="inner">
+		<div class="columns wat-cf">
+			<div class="column left">
+					Select Organization <%= select_tag "activities", options_from_collection_for_select(@orgs, "id", "organization") %>
+			</div><br>
+			
+			<%= render :partial => 'index', :layout => false %>
+		</div>
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

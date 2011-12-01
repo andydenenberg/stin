@@ -290,11 +290,13 @@ input.checkbox {
   color: red;
 }
 
+
 .form input.text_field, .form textarea.text_area {
   width: 100%;
   border-width: 1px;
   border-style: solid;
 }
+
 
 /* lists */
 
