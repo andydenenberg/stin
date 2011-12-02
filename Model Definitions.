@@ -1,3 +1,16 @@
+Rather than create a new user table, follow David Miller example to extend the Devise user table
+
+Some Devise helpers
+before_filter :authenticate_user!
+Tell devise to use :user map@
+user_signed_in?
+Checks whether there is an user signed in or not
+current_user
+Current signed in user (e.g. current_user.email would give you the e-mail of the current signed in user)
+user_session
+Session data available only to the user scope
+
+
 Data for the Site
 
 Organizaion records define the Organizations and Charities that are in need of support

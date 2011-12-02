@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>README</string>
+	<string>db/schema.rb</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -18,7 +18,7 @@
 		</dict>
 	</array>
 	<key>fileHierarchyDrawerWidth</key>
-	<integer>415</integer>
+	<integer>382</integer>
 	<key>metaData</key>
 	<dict>
 		<key>Gemfile</key>
@@ -49,63 +49,33 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
-		<key>README</key>
+		<key>app/views/activities/index.html.erb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>0</integer>
+				<integer>7</integer>
 				<key>line</key>
-				<integer>168</integer>
+				<integer>19</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>149</integer>
+			<integer>0</integer>
 		</dict>
-		<key>app/assets/stylesheets/web-app-theme/base.css</key>
+		<key>app/views/donors/index.html.erb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>line</key>
-				<integer>294</integer>
+				<integer>31</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>269</integer>
-		</dict>
-		<key>app/assets/stylesheets/web_app_theme.css</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>0</integer>
-				<key>line</key>
-				<integer>10</integer>
-			</dict>
-			<key>columnSelection</key>
-			<false/>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-			<key>selectFrom</key>
-			<dict>
-				<key>column</key>
-				<integer>45</integer>
-				<key>line</key>
-				<integer>26</integer>
-			</dict>
-			<key>selectTo</key>
-			<dict>
-				<key>column</key>
-				<integer>0</integer>
-				<key>line</key>
-				<integer>10</integer>
-			</dict>
+			<integer>6</integer>
 		</dict>
 		<key>app/views/home/index.html.erb</key>
 		<dict>
@@ -135,18 +105,46 @@
 			<key>firstVisibleLine</key>
 			<integer>10</integer>
 		</dict>
+		<key>db/schema.rb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>34</integer>
+				<key>line</key>
+				<integer>54</integer>
+			</dict>
+			<key>columnSelection</key>
+			<false/>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>39</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>16</integer>
+				<key>line</key>
+				<integer>54</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>34</integer>
+				<key>line</key>
+				<integer>54</integer>
+			</dict>
+		</dict>
 	</dict>
 	<key>openDocuments</key>
 	<array>
-		<string>Gemfile</string>
-		<string>README</string>
-		<string>Model Definitions.</string>
-		<string>app/assets/stylesheets/web-app-theme/base.css</string>
-		<string>app/assets/stylesheets/web_app_theme.css</string>
+		<string>app/views/activities/index.html.erb</string>
+		<string>app/views/donors/index.html.erb</string>
+		<string>db/schema.rb</string>
 	</array>
 	<key>showFileHierarchyDrawer</key>
 	<true/>
 	<key>windowFrame</key>
-	<string>{{451, 235}, {1087, 939}}</string>
+	<string>{{472, 278}, {979, 638}}</string>
 </dict>
 </plist>
