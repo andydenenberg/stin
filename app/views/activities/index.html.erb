@@ -8,16 +8,17 @@
   <div class="content">          
     <h2 class="title">Activities</h2>
 
-
-
     <div class="inner">
 		<div class="columns wat-cf">
 			<div class="column left">
-					Select Organization <%= select_tag "activities", options_from_collection_for_select(@orgs, "id", "organization") %>
+					Select Organization <%= select_tag "activities", options_for_select(orgs_for_select) %>
+					&nbsp; &nbsp; &nbsp; &nbsp;
+					Select User <%= select_tag "users", options_for_select(users_for_select) %>				  
 			</div><br>
 			
 			<%= render :partial => 'index', :layout => false %>
 		</div>
+				
     </div>
   </div>
 </div>

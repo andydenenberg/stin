@@ -2,12 +2,9 @@ class ActivitiesController < ApplicationController
   # GET /activities
   # GET /activities.json
   def index
-    @activities = Activity.all
-    @orgs = Org.all
-#  @activities = Activity.find(:all, :conditions => { :org_id  => org.id })
-
     @activities = Activity.paginate :page => params[:page], :per_page => 5
     @orgs = Org.all
+    @users = User.all
    
     respond_to do |format|
       format.html # index.html.erb
@@ -30,11 +27,10 @@ class ActivitiesController < ApplicationController
   # GET /activities/new.json
   def new
 #    @org = Org.all
-#    @org = Org.find(:all, :conditions => { :created_by => session[:name] })
-
-    @org = Org.find(:all, :conditions => { :organization  => 'Anixter Center' })
-    @activity = Activity.new(:org_id => 3 )
+#    @org = Org.find(:all, :conditions => { :organization  => 'Anixter Center' })
+    @activity = Activity.new
     @orgs = Org.all
+    @activity.user_id = current_user.id
 
     respond_to do |format|
       format.html # new.html.erb

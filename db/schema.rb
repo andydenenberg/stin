@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111130183657) do
+ActiveRecord::Schema.define(:version => 20111205205726) do
 
   create_table "activities", :force => true do |t|
     t.string   "name"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20111130183657) do
     t.integer  "reward"
     t.datetime "starttime"
     t.datetime "endtime"
+    t.integer  "user_id"
   end
 
   add_index "activities", ["org_id"], :name => "index_activities_on_org_id"
@@ -48,6 +49,7 @@ ActiveRecord::Schema.define(:version => 20111130183657) do
     t.text     "background"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "users", :force => true do |t|
@@ -63,6 +65,12 @@ ActiveRecord::Schema.define(:version => 20111130183657) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "first"
+    t.string   "last"
+    t.string   "address"
+    t.string   "city"
+    t.string   "facebook"
+    t.text     "comments"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

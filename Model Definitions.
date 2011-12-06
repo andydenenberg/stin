@@ -10,6 +10,31 @@ Current signed in user (e.g. current_user.email would give you the e-mail of the
 user_session
 Session data available only to the user scope
 
+Step 1.  Create Migration to extend the devise user with
+first:string
+last:string
+address:string
+city:string
+facebook:string
+comments:text
+rails generate migration AddProfileInfoToUsers first:string last:string address:string city:string facebook:string comments:text
+
+Step 2. Make the new attributes accessible in model - user.rb
+# Setup accessible (or protected) attributes for your model
+attr_accessible :email, .... add the following... :first, :last, :address, :city, :facebook, :comments 
+
+Step 4. Create a profile_controller to access the user from the user model
+rails generate controller profile 
+
+Step 5. Set-up profile views, including forms to manage the user data
+
+Step 6. Create route to views using...
+resource :profile
+
+
+if needed.  Use devise help to access the current-user, etc
+
+
 
 Data for the Site
 

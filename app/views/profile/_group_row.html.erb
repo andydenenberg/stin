@@ -1,0 +1,4 @@
+<tr>
+	<td><%= link_to group.name, group_path(group) %></td>
+	<td><%= button_to "Leave", leave_group_path(group), :id => "leave_#{group.id}" %></td>
+</tr>

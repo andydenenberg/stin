@@ -1,32 +1,25 @@
 <table class="table">
   <tr>             
-    <th class="first">Organization</th>
+    <th>Organization</th>
     <th>Impact</th>
     <th>Reward</th>
     <th>Name</th>
     <th>Activity Date</th>
     <th>Duration</th>
-    <th class="last">&nbsp;</th>
+	<th>Performed by</th>
+    <th>&nbsp;</th>
   </tr>
-
-
 
   <% @activities.each do |activity| -%>
   <tr class="<%= cycle("odd", "even") %>">
-    <td>
-
-	    <% 	@org = Org.find(:all, :conditions => { :id  => activity.org_id  }) %>
-	    <% 	@org.each do |org| %>
-	    <%= org.organization	%>  
-	    <% 	end %>
-	</td>
+    
+	<td><%= organization_name(activity.org_id) %></td>	
     <td><%= activity.impact %></td>
-    <td><%= activity.reward %></td>
-
-	
+    <td><%= activity.reward %></td>	
     <td><%= link_to activity.name, activity_path(activity) %></td>
-    <td><%= activity.starttime %></td>
-    <td><%= ( activity.endtime - activity.starttime )/3600 %></td>
+    <td><%= activity.starttime.to_formatted_s(:long) %></td>
+    <td><%= "%.2f" % ( ( activity.endtime - activity.starttime )/3600 ) %></td>
+	<td><%= user_first_name(activity.user_id) %></td>
 
     <td class="last">
       <%= link_to "Show", activity_path(activity) %> |
@@ -39,6 +32,8 @@
 <div class="actions-bar wat-cf">
   <div class="actions">
   </div>
+
+	Total time: <%= total_activity_time('all') %>hrs.
   
   <%= will_paginate @activities  %>
   

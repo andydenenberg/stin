@@ -1,0 +1,40 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="active"><%= link_to "Show", profile_path  %></li>
+    </ul>
+  </div>
+          
+  	<div class="content">
+    	<div class="inner">
+    
+			<div class="columns wat-cf">
+				<div class="column left">
+		  			<div class="group">
+						<h1>My Profile </h1>
+						<h2>Public profile</h2>  <%= link_to image_tag("web-app-theme/application_edit.png", :alt => "Edit") + " " + "Edit Profile", edit_profile_path, :class => "button", :method => :get %><br><br>
+						<p>Email: <b><%= @user.email %><b></p>
+						<p>Name: <%= @user.first %> <%= @user.last %></p>
+						<p>Address: <%= @user.address %>
+						<p>City: <%= @user.city %>
+						<p>Facebook: <%= @user.facebook %>
+						<p>Comments: <%= @user.comments %></p>
+					</div>
+				</div>
+
+				<div class="column right">
+		  			<div class="group">
+						<h2>Account information</h2>  <%= link_to image_tag("web-app-theme/application_edit.png", :alt => "Edit") + " " + "Edit Account Info", edit_user_registration_path, :class => "button", :method => :get %><br><br>
+						
+						<p>Email: <%= @user.email %></p>
+						<p>Password: <i>hidden</i></p>
+					</div>
+				</div>
+			</div>
+			
+ 		</div>
+	</div>
+	
+</div>
+
+

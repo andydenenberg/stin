@@ -3,6 +3,14 @@ class OrgsController < ApplicationController
   # GET /orgs.json
   def index
     @orgs = Org.paginate :page => params[:page], :per_page => 10
+    @users = User.all
+
+#      @activities = Activity.find(:all, :conditions => { :org_id  => 4 })
+#      @total_hours = 0
+#      @activities.each do |act|
+#        @total_hours += ( act.endtime - act.starttime )/3600
+#        puts @total_hours
+#      end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -28,6 +36,7 @@ class OrgsController < ApplicationController
 #    @org.donor_id = 1
 #     @activity = Activity.find(:all, :conditions => { :name  => 'clean' })
 
+@org.user_id = current_user.id
 
     respond_to do |format|
       format.html # new.html.erb

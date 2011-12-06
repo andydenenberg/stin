@@ -18,6 +18,9 @@
 			    <span class="description">Ex: a simple text</span>
 			  </div>
 		</div>
+
+	  <%= f.hidden_field :user_id %>
+
 		
 		<div class="column right">
   			  <div class="group">
@@ -42,7 +45,7 @@
         
 <div class="group navform wat-cf">
   <button class="button" type="submit">
-    <%= image_tag("web-app-theme/tick.png", :alt => "Save") %>Save %>
+    <%= image_tag("web-app-theme/tick.png", :alt => "Save") %>Save
   </button>
   <span class="text_button_padding">or</span>
 	<%= link_to "Cancel", orgs_path, :class => "text_button_padding link_button" %>

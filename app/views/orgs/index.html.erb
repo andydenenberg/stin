@@ -1,31 +1,36 @@
 <div class="block">
   <div class="secondary-navigation">
     <ul class="wat-cf">
-      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List")}", orgs_path  %></li>
-      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_org_path %></li>
+      <li class="first active"><%= link_to "List", orgs_path  %></li>
+      <li><%= link_to "New", new_org_path %></li>
     </ul>
   </div>          
   <div class="content">          
-    <h2 class="title"><%= t("web-app-theme.all", :default => "All")  %> Orgs</h2>
+    <h2 class="title">Organizations</h2>
     <div class="inner">
+
+		Select User <%= select_tag "users", options_from_collection_for_select(@users, "id", "first") %><br><br>
+
       <table class="table">
         <tr>             
-          <th class="first">ID</th>
           <th>Organization</th>
-          <th>Created at</th>
+          <th>Created on</th>
           <th>Created by</th>
+		  <th>Activity Time</th>
           <th class="last">&nbsp;</th>
         </tr>
         <% @orgs.each do |org| -%>
         <tr class="<%= cycle("odd", "even") %>">
-          <td><%= org.id %></td>
           <td><%= link_to org.organization, org_path(org) %></td>
-          <td><%= org.created_at %></td>
-          <td><%= org.address %></td>
+          <td><%= org.created_at.strftime ("%m-%d-%Y") %></td>
+
+		  <td><%= user_first_name(org.user_id) %></td>
+		  <td><%= total_activity_time(org.id) %></td>
+		
           <td class="last">
-            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", org_path(org) %> |
-            <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_org_path(org) %> |
-            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", org_path(org), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+            <%= link_to "Show", org_path(org) %> |
+            <%= link_to "Edit", edit_org_path(org) %> |
+            <%= link_to "Delete", org_path(org), :method => :delete, :confirm => "Are you sure?" %>
           </td>
         </tr>          
         <% end -%>

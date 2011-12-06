@@ -5,11 +5,15 @@ ThemeG::Application.routes.draw do
 
   resources :donors
 
+  resource :profile, :only => [:show, :edit, :update], :controller => 'profile'
+
   devise_for :users
 
   get "home/index"
   
-  match '/list' , :to => 'donors#list'
+  match '/profile/list' , :to => 'profile#list'
+  match '/profile/index' , :to => 'profile#index'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

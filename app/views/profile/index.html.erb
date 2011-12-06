@@ -1,0 +1,38 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "List", profile_list_path  %></li>
+      <li class="active"><%= link_to "Technical info", profile_index_path %></li>
+    </ul>
+  </div>          
+  <div class="content">          
+    <h2 class="title">All Donors</h2>
+    <div class="inner">
+      <table class="table">
+        <tr>             
+          <th class="first">Email</th>
+                    <th>Sign in Count</th>
+                    <th>Current IP</th>
+          <th class="last">Current Sign-in Time</th>
+        </tr>
+
+		<% @users.each do |user| %>
+       <tr class="<%= cycle("odd", "even") %>">
+        <td><%= user.email %></td> 
+		<td><%= user.sign_in_count %> times</td>
+		<td><%= user.current_sign_in_ip %></td>
+		<td><%= user.current_sign_in_at %></td>
+        </tr>          
+        <% end -%>
+      </table>
+      <div class="actions-bar wat-cf">
+        <div class="actions">
+        </div>
+        
+         
+      </div>
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

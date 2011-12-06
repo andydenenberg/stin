@@ -19,3 +19,15 @@
   -webkit-border-radius: 2px;
   border-radius: 2px;
 }
+
+
+#columns_left {
+  font-weight: bold;  
+  width: 48% ;
+  float: left;
+}
+
+#columns_right {
+  width: 48%;
+  float: right;
+}

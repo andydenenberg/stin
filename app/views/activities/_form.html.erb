@@ -1,24 +1,26 @@
-
 <div class="columns wat-cf">
 		<div class="column left">
-			  <div class="group">
-			    <%= f.label :name, "Name", :class => :label %>
-			    <%= f.text_field :name, :class => 'text_field' %>
-			    <span class="description">Ex: a simple text</span>
-			  </div>
-			  <div class="group">
-			    <%= f.label :description, "Description", :class => :label %>
-			    <%= f.text_area :description, :class => 'text_area', :rows => 10 %>
-			    <span class="description">Ex: a simple text</span>
-			  </div>			
-				<div class="group">
-				  <button class="button" type="submit">
-				    <%= image_tag("web-app-theme/tick.png", :alt => "Save") %>Save
-				  </button>
-				  <span class="text_button_padding">or</span>
-					<%= link_to "Cancel", activities_path, :class => "text_button_padding link_button" %>
-				</div>
+		  <div class="group">
+		    <%= f.label :name, "Name", :class => :label %>
+		    <%= f.text_field :name, :class => 'text_field' %>
+		    <span class="description">Ex: a simple text</span>
+		  </div>
+		  <div class="group">
+		    <%= f.label :description, "Description", :class => :label %>
+		    <%= f.text_area :description, :class => 'text_area', :rows => 10 %>
+		    <span class="description">Ex: a simple text</span>
+		  </div>			
+		<div class="group">
+		  <button class="button" type="submit">
+		    <%= image_tag("web-app-theme/tick.png", :alt => "Save") %>Save
+		  </button>
+		  <span class="text_button_padding">or</span>
+			<%= link_to "Cancel", activities_path, :class => "text_button_padding link_button" %>
 		</div>
+	</div>
+
+	  <%= f.hidden_field :user_id %>
+
 		
 		<div class="column right">
 				  <div class="group">
@@ -29,7 +31,7 @@
 
   			  <div class="group">
 			    <%= f.label :starttime, "Start Date", :class => :label %>
-			    <%= f.datetime_select :starttime, :start_year => 2012, :default => { :hour => Time.now.hour, :minute => Time.now.min } , :ampm => true %><br>
+			    <%= f.datetime_select :starttime, :default => { :hour => Time.now.hour, :minute => Time.now.min } , :ampm => true %><br>
 			    <span class="description">Ex: a simple text</span>
 			  </div>			
 
@@ -41,21 +43,14 @@
 
 			  <div class="group">
 			    <%= f.label :impact, "Impact", :class => :label %>
-			    <%= f.select :impact, [['weak', 1], ['poor', 2], ['somewhat', 3], ['good', 4], ['great', 5]], :selected => 3 %><br>
-			    <span class="description">How useful was the activity</span>
+			    <%= f.select :impact, impact_choices %><br>
+			    <span class="description">How useful was the activity?</span>
 			  </div>
 			  <div class="group">
 			    <%= f.label :reward, "Personal Satisfaction", :class => :label %>
-				<%= f.radio_button :reward, 3 %>
-				<%= f.label :reward, "Great Feeling" %><br>
-				<%= f.radio_button :reward, 2 , :checked => true  %>
-				<%= f.label :reward, "Was OK"  %><br>
-				<%= f.radio_button :reward, 1 %>
-				<%= f.label :reward, "Not worthwhile" %><br>
-				<%= f.radio_button :reward, 0 %>
-				<%= f.label :reward, "Like Mick Jagger" %><br>
+				<%= f.select :reward, reward_choices %><br>
 				
-			    <span class="description">Ex: a simple text</span>
+			    <span class="description">How did the activity make you feel?</span>
 			  </div>        
 
 		</div>
