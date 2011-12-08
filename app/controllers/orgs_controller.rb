@@ -85,7 +85,13 @@ class OrgsController < ApplicationController
   # DELETE /orgs/1.json
   def destroy
     @org = Org.find(params[:id])
-    @org.destroy
+    a = Activity.find(:all, :conditions => { :id  => params[:id]  }).first
+      if a
+        puts "There are activities associated with #{@org.organization} - it cannot be deleted"
+      else
+        puts "The org has no activities"
+        @org.destroy
+      end
 
     respond_to do |format|
       format.html { redirect_to orgs_url }

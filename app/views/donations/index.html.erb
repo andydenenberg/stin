@@ -1,0 +1,48 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first active"><%= link_to "List", donations_path  %></li>
+      <li><%= link_to "New", new_donation_path %></li>
+    </ul>
+  </div>          
+  <div class="content">          
+    <h2 class="title">Donations</h2>
+    <div class="inner">
+      <table class="table">
+        <tr>             
+          <th>Organization</th>
+                    <th>Donated on</th>
+					<th>By</div>
+                    <th>Type</th>
+                    <th>Value</th>
+					<th>Description</th>
+          <th class="last">&nbsp;</th>
+        </tr>
+        <% @donations.each do |donation| -%>
+        <tr class="<%= cycle("odd", "even") %>">
+					<td><%= link_to organization_name(donation.org_id), donation_path(donation) %>
+                    <td><%= donation.created_at.to_formatted_s(:short) %></td>
+					<td><%= user_first_name(donation.user_id) %>
+					<td><%= x_donation_kind(donation.kind) %></td>
+					<td><%= number_to_currency(donation.value) %></td>
+					<td><%= donation.description %>
+          <td>
+            <%= link_to "Show", donation_path(donation) %> |
+            <%= link_to "Edit", edit_donation_path(donation) %> |
+            <%= link_to "Delete", donation_path(donation), :method => :delete, :confirm => "Are you sure?" %>
+          </td>
+        </tr>          
+        <% end -%>
+      </table>
+      <div class="actions-bar wat-cf">
+        <div class="actions">
+        </div>
+        
+        <%= will_paginate @donations  %>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

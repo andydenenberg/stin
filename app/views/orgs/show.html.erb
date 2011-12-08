@@ -13,6 +13,10 @@
           <%= @org.organization %>
         </p>
 
+        <p><b>Logo:</b>
+          <%= show_photo(@org) %>
+        </p>
+		
         <p><b>Division:</b>
           <%= @org.division %>
         </p>
@@ -32,6 +36,7 @@
         <p><b>Background:</b>
           <%= @org.background %>
         </p>
+
       <div class="wat-cf">
         <%= link_to image_tag("web-app-theme/application_edit.png", :alt => "Edit") + " " + "Edit", edit_org_path(@org), :class => "button" %> 
         <%= link_to image_tag("web-app-theme/cross.png", :alt => "Delete") + " " + "Delete", org_path(@org), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>

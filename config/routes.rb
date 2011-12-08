@@ -1,9 +1,9 @@
 ThemeG::Application.routes.draw do
+  resources :donations
+
   resources :activities
 
   resources :orgs
-
-  resources :donors
 
   resource :profile, :only => [:show, :edit, :update], :controller => 'profile'
 
@@ -13,7 +13,7 @@ ThemeG::Application.routes.draw do
   
   match '/profile/list' , :to => 'profile#list'
   match '/profile/index' , :to => 'profile#index'
-
+  match '/profile/new' , :to => 'profile#new'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

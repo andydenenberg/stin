@@ -11,17 +11,21 @@
       <table class="table">
         <tr>             
           <th class="first">Email</th>
-                    <th>Sign in Count</th>
-                    <th>Current IP</th>
+          <th>Activities</th>
+          <th>Activity Time</th>
+          <th>Sign in Count</th>
+          <th>Current IP</th>
           <th class="last">Current Sign-in Time</th>
         </tr>
 
 		<% @users.each do |user| %>
        <tr class="<%= cycle("odd", "even") %>">
         <td><%= user.email %></td> 
-		<td><%= user.sign_in_count %> times</td>
+		<td><%= Activity.find(:all, :conditions => { :user_id  => user.id }).count %> times</td>
+		<td><%= user_time(user.id) %> hrs.</td>
+		<td><%= user.sign_in_count %></td>
 		<td><%= user.current_sign_in_ip %></td>
-		<td><%= user.current_sign_in_at %></td>
+		<td><%= user.current_sign_in_at %></td>	    
         </tr>          
         <% end -%>
       </table>

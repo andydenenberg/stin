@@ -2,6 +2,7 @@
   <div class="secondary-navigation">
     <ul class="wat-cf">
       <li class="active"><%= link_to "Show", profile_path  %></li>
+      <li><%= link_to "Edit", edit_profile_path  %></li>
     </ul>
   </div>
           
@@ -21,10 +22,12 @@
 			</div>
 
 			<div id="columns_right">
-						<h2>Account information</h2>  <%= link_to image_tag("web-app-theme/application_edit.png", :alt => "Edit") + " " + "Edit Account Info", edit_user_registration_path, :class => "button", :method => :get %><br><br>
+						<h2>Change Password</h2>  <%= link_to image_tag("web-app-theme/application_edit.png", :alt => "Edit") + " " + "Edit Password", edit_user_registration_path, :class => "button", :method => :get %><br><br>
 						
 						<p>Email: <%= @user.email %></p>
 						<p>Password: <i>hidden</i></p>
+						<h2>Photo</h2>
+						<%= show_photo(@user) %>												
 						
 			</div>
 			

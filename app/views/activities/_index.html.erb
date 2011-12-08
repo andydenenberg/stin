@@ -13,11 +13,11 @@
   <% @activities.each do |activity| -%>
   <tr class="<%= cycle("odd", "even") %>">
     
-	<td><%= organization_name(activity.org_id) %></td>	
-    <td><%= activity.impact %></td>
-    <td><%= activity.reward %></td>	
+	<td><%= organization_name(activity.org_id) %></td>
+    <td><%= x_impact(activity.impact) %></td>
+    <td><%= x_reward(activity.reward) %></td>	
     <td><%= link_to activity.name, activity_path(activity) %></td>
-    <td><%= activity.starttime.to_formatted_s(:long) %></td>
+    <td><%= activity.starttime.to_formatted_s(:short) %></td>
     <td><%= "%.2f" % ( ( activity.endtime - activity.starttime )/3600 ) %></td>
 	<td><%= user_first_name(activity.user_id) %></td>
 
@@ -30,8 +30,6 @@
   <% end -%>
 </table>
 <div class="actions-bar wat-cf">
-  <div class="actions">
-  </div>
 
 	Total time: <%= total_activity_time('all') %>hrs.
   

@@ -14,12 +14,12 @@ group :development, :test do
 gem 'sqlite3'
 end
 
-# gem 'sqlite3'
+gem 'paperclip', '~> 2.4' 
+require 'yaml'
+gem 'aws-s3'
 
 gem 'devise'
-
 gem 'will_paginate'
-
 gem 'haml'
 
 group :development, :test do

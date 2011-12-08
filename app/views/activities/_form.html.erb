@@ -2,13 +2,14 @@
 		<div class="column left">
 		  <div class="group">
 		    <%= f.label :name, "Name", :class => :label %>
+		    <span class="description">Briefly describe activity</span>
+		
 		    <%= f.text_field :name, :class => 'text_field' %>
-		    <span class="description">Ex: a simple text</span>
 		  </div>
 		  <div class="group">
-		    <%= f.label :description, "Description", :class => :label %>
+		    <%= f.label :description, "Description", :class => :label -%><span class="description">Expand on what you did and how you felt about it</span>
+		    
 		    <%= f.text_area :description, :class => 'text_area', :rows => 10 %>
-		    <span class="description">Ex: a simple text</span>
 		  </div>			
 		<div class="group">
 		  <button class="button" type="submit">
@@ -25,32 +26,29 @@
 		<div class="column right">
 				  <div class="group">
 			    	<%= f.label :org_id, "Organization", :class => :label %>
+			    	<span class="description">Pick the Organization</span><br>
 					<%= f.collection_select( :org_id , Org.all, :id, :organization) %><br>
-			    	<span class="description">Ex: a simple text</span>
 			  	</div>
 
   			  <div class="group">
 			    <%= f.label :starttime, "Start Date", :class => :label %>
 			    <%= f.datetime_select :starttime, :default => { :hour => Time.now.hour, :minute => Time.now.min } , :ampm => true %><br>
-			    <span class="description">Ex: a simple text</span>
 			  </div>			
 
   			  <div class="group">
 			    <%= f.label :endtime, "End Date", :class => :label %>
 			    <%= f.datetime_select :endtime,  :default => { :hour => ( Time.now.+2.hour ).hour, :minute => Time.now.min }, :ampm => true %><br>
-			    <span class="description">Ex: a simple text</span>
 			  </div>			
 
 			  <div class="group">
 			    <%= f.label :impact, "Impact", :class => :label %>
-			    <%= f.select :impact, impact_choices %><br>
-			    <span class="description">How useful was the activity?</span>
+			    <span class="description">How useful was the activity?</span><br>
+			    <%= f.select :impact, impact_choices %>
 			  </div>
 			  <div class="group">
 			    <%= f.label :reward, "Personal Satisfaction", :class => :label %>
+			    <span class="description">How did the activity make you feel?</span><br>
 				<%= f.select :reward, reward_choices %><br>
-				
-			    <span class="description">How did the activity make you feel?</span>
 			  </div>        
 
 		</div>

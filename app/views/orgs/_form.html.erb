@@ -17,6 +17,14 @@
 			    <%= f.text_field :address, :class => 'text_field' %>
 			    <span class="description">Ex: a simple text</span>
 			  </div>
+
+			  <div class="group">
+			    <%= f.label "Logo", :class => :label %><br>
+				<%= show_photo(@org) %><br><br>			
+			    <%= f.file_field :avatar, :class => 'image' %><br>
+			  	<span class="description">Please upload a logo</span>
+			  </div>
+						
 		</div>
 
 	  <%= f.hidden_field :user_id %>

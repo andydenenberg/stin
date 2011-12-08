@@ -15,7 +15,7 @@ end
 def index
 #  @users = Donor.paginate :page => params[:page], :per_page => 10 
  @users = User.all
-  
+    
   respond_to do |format|
     format.html # index.html.erb
     format.json { render json: @users }
@@ -41,22 +41,6 @@ end
   def update
     @user = current_user
     if @user.update_attributes(params[:user])
-
-      puts 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb'
-      puts params[:user]
-      puts @user
-      
-      puts @user.first
-      puts @user.last
-      puts 'in the middle'
-      puts @user.comments
-      
-#      @user.each do |user|
-#        puts user.email
-#        puts user.last
-#        puts user.comments
-#      end
-      puts 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb'
       
       redirect_to(profile_path, :notice => 'Your profile information was successfully updated.') 
     else

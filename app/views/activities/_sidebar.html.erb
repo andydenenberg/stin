@@ -8,9 +8,10 @@
 <div class="block">
   <h3>Links</h3>
   <ul class="navigation">
-	<li><%= link_to 'User Data', donors_path %></li>
-    <li><a href="#">Latest new Projects</a></li>
-    <li><a href="#">Latest new Organizations</a></li>
+      <li class="first"><%= link_to 'Organizations', orgs_path %></li>
+      <li class="first"><%= link_to 'Users', profile_list_path %></li>
+      <li class="first"><%= link_to 'Activities', activities_path %></li>
+      <li class="first"><%= link_to 'Donations', donations_path %></li>
   </ul>
 </div>
 

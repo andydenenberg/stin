@@ -12,20 +12,24 @@
 		Select User <%= select_tag "users", options_from_collection_for_select(@users, "id", "first") %><br><br>
 
       <table class="table">
-        <tr>             
+        <tr>  
+	      <th>Logo</th>
           <th>Organization</th>
           <th>Created on</th>
           <th>Created by</th>
 		  <th>Activity Time</th>
+		  <th>Donations</th>
           <th class="last">&nbsp;</th>
         </tr>
         <% @orgs.each do |org| -%>
         <tr class="<%= cycle("odd", "even") %>">
+		  <td><%= show_photo(org)  %>
           <td><%= link_to org.organization, org_path(org) %></td>
           <td><%= org.created_at.strftime ("%m-%d-%Y") %></td>
 
 		  <td><%= user_first_name(org.user_id) %></td>
 		  <td><%= total_activity_time(org.id) %></td>
+		  <td><%= number_to_currency(org_donations(org.id)) %></td>
 		
           <td class="last">
             <%= link_to "Show", org_path(org) %> |

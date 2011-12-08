@@ -1,13 +1,14 @@
 <div class="block">
   <div class="secondary-navigation">
     <ul class="wat-cf">
+      <li><%= link_to "Show", profile_path  %></li>
       <li class="active"><%= link_to "Edit", edit_profile_path %></li>
     </ul>
   </div>          
   <div class="content">            
     <h2 class="title">Profile for <%= @user.email %></h2>
     <div class="inner">
-		<%= form_for @user, :url => profile_path(@user),  :html => { :class => :form } do |f| %>
+		<%= form_for @user, :url => profile_path(@user),  :html => { :class => :form , :multipart => true } do |f| %>
 			  <% if @user.errors.any? %>
 			    <div id="error_explanation">
 			      <h2><%= pluralize(@user.errors.count, "error") %> prohibited your profile information from being saved:</h2>
