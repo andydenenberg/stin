@@ -2,7 +2,7 @@ class ActivitiesController < ApplicationController
   # GET /activities
   # GET /activities.json
   def index
-    @activities = Activity.paginate :page => params[:page], :per_page => 5
+    @activities = Activity.paginate :page => params[:page], :per_page => 10
     @orgs = Org.all
     @users = User.all
    
