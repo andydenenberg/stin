@@ -23,7 +23,7 @@
         </tr>
         <% @orgs.each do |org| -%>
         <tr class="<%= cycle("odd", "even") %>">
-		  <td><%= show_photo(org)  %>
+		  <td><%= show_photo(org,:tiny)  %>
           <td><%= link_to org.organization, org_path(org) %></td>
           <td><%= org.created_at.strftime ("%m-%d-%Y") %></td>
 

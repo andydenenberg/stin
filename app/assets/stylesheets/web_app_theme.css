@@ -5,12 +5,8 @@
  *= require web-app-theme/themes/default/style.css
  *= require_self
  */
-
 /* Write here your css for overriding the theme's rules */
-
 /* the following changes fix the style for will_paginate */
-
-
 /* dot is for classes and pound is for IDs */
 
 .pagination em {
