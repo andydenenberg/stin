@@ -1,16 +1,13 @@
 class OrgsController < ApplicationController
   # GET /orgs
   # GET /orgs.json
-  def index
-    @orgs = Org.paginate :page => params[:page], :per_page => 10
-    @users = User.all
 
-#      @activities = Activity.find(:all, :conditions => { :org_id  => 4 })
-#      @total_hours = 0
-#      @activities.each do |act|
-#        @total_hours += ( act.endtime - act.starttime )/3600
-#        puts @total_hours
-#      end
+  helper_method :sort_column, :sort_direction
+
+  def index
+    @orgs = Org.order(sort_column + " " + sort_direction).paginate :page => params[:page], :per_page => 10, :order => 'organization'
+    @users = User.all
+#    @sum_value = Donation.sum("value")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -85,7 +82,7 @@ class OrgsController < ApplicationController
   # DELETE /orgs/1.json
   def destroy
     @org = Org.find(params[:id])
-    a = Activity.find(:all, :conditions => { :id  => params[:id]  }).first
+    a = Activity.first
       if a
         puts "There are activities associated with #{@org.organization} - it cannot be deleted"
       else
@@ -98,4 +95,17 @@ class OrgsController < ApplicationController
       format.json { head :ok }
     end
   end
+
+  private
+  
+  def sort_column
+    Org.column_names.include?(params[:sort]) ? params[:sort] : "organization"
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  end
+
 end
+
+  

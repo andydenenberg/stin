@@ -1,7 +1,12 @@
 ThemeG::Application.routes.draw do
   resources :donations
 
-  resources :activities
+#  resources :activities
+resources :activities do
+  collection do
+    get 'sorted'
+  end
+end
 
   resources :orgs
 

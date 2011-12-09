@@ -27,8 +27,6 @@
 						
 		</div>
 
-	  <%= f.hidden_field :user_id %>
-
 		
 		<div class="column right">
   			  <div class="group">
@@ -48,6 +46,13 @@
 			    <%= f.text_area :background, :class => 'text_area' , :cols => 50, :rows => 5 %>
 			    <span class="description">Ex: a simple text</span>
 			  </div>
+			
+				  <div class="group">
+			    	<%= f.label :user_id, "Sponsor", :class => :label %>
+			    	<span class="description">Pick the User</span><br>
+					<%= f.collection_select( :user_id , User.all, :id, :first) %><br>
+			  	</div>
+			
 		</div>
 </div>
         

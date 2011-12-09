@@ -9,6 +9,20 @@
 /* the following changes fix the style for will_paginate */
 /* dot is for classes and pound is for IDs */
 
+/* for the sortable columns */
+.current {
+	padding-right: 12px;
+	background-repeat: no-repeat;
+	background-position: right center;
+}
+.asc {
+	background-image: url(web-app-theme/down_arrow.gif);
+}
+.desc {
+	background-image: url(web-app-theme/up_arrow.gif);
+}
+
+
 .pagination em {
   font-weight: bold;  
   margin-right: 5px;	

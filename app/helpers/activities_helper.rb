@@ -14,8 +14,7 @@ module ActivitiesHelper
   end
       
   def total_activities
-    total_activities = Activity.all
-    return total_activities.count
+    total_activities = Activity.all.count
   end
 
   def total_time

@@ -1,0 +1,31 @@
+<table class="table">
+  <tr>  
+    <th>Logo</th>
+    <th><%= sortable 'organization', "Organization" %></th>
+    <th><%= sortable 'user_id', "Sponsor" %></th>
+	  <th>Activity Time</th>
+	  <th>Record Activity</th>
+	  <th>Donations</th>
+    <th class="last">&nbsp;</th>
+  </tr>
+  <% @orgs.each do |org| -%>
+  <tr class="<%= cycle("odd", "even") %>">
+	  <td><%= show_photo(org,:tiny)  %>
+    <td><%= link_to org.organization, org_path(org) %></td>
+	  <td><%= user_first_name(org.user_id) %></td>
+	  <td><%= total_activity_time(org.id) %></td>
+	  <td><%= link_to "New", new_activity_path %></td>
+	  <td><%= number_to_currency(org_donations(org.id)) %></td>
+	
+    <td class="last">
+      <%= link_to "Show", org_path(org) %> |
+      <%= link_to "Edit", edit_org_path(org) %> |
+      <%= link_to "Delete", org_path(org), :method => :delete, :confirm => "Are you sure?" %>
+    </td>
+  </tr>          
+  <% end -%>
+</table>
+<div class="actions-bar wat-cf">
+		<%= will_paginate @orgs %>
+  </div>        
+

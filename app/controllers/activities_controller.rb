@@ -1,4 +1,28 @@
 class ActivitiesController < ApplicationController
+
+  def sorted
+      user = params[:user]
+      organization = params[:org]
+      puts user
+      if user == 'All' && organization == 'All'  # both All
+        @activities = Activity.all
+      else        
+            if user == 'All'   # User All       
+              @activities = Activity.where(:org_id => organization ).order('starttime')
+            else
+                  if organization == 'All'  # Org All
+                    @activities = Activity.where(:user_id => user).order('starttime')
+                  end
+                  @activities = Activity.where(:org_id => organization, :user_id => user ).order('starttime')
+            end
+      end  
+
+    @orgs = Org.all
+    @users = User.all
+    render :partial => 'index', :layout => false
+
+  end
+
   # GET /activities
   # GET /activities.json
   def index
@@ -26,8 +50,6 @@ class ActivitiesController < ApplicationController
   # GET /activities/new
   # GET /activities/new.json
   def new
-#    @org = Org.all
-#    @org = Org.find(:all, :conditions => { :organization  => 'Anixter Center' })
     @activity = Activity.new
     @orgs = Org.all
     @activity.user_id = current_user.id
