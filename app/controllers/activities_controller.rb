@@ -1,21 +1,38 @@
 class ActivitiesController < ApplicationController
 
   def sorted
+      flag = 0
       user = params[:user]
       organization = params[:org]
       puts user
-      if user == 'All' && organization == 'All'  # both All
+
+      if user == 'All' && organization == 'All'  
+        puts '# Both All'
+        flag = 1
         @activities = Activity.all
-      else        
-            if user == 'All'   # User All       
-              @activities = Activity.where(:org_id => organization ).order('starttime')
-            else
-                  if organization == 'All'  # Org All
-                    @activities = Activity.where(:user_id => user).order('starttime')
-                  end
-                  @activities = Activity.where(:org_id => organization, :user_id => user ).order('starttime')
-            end
-      end  
+      end        
+            
+      if user == 'All' && organization != 'All'  
+      puts "# User All"
+      flag = 2      
+      @activities = Activity.where(:org_id => organization ).order('starttime')
+      end
+      
+      if organization == 'All' && user != 'All'
+      puts '# Org All'
+      flag = 3
+      @activities = Activity.where(:user_id => user).order('starttime')
+      end
+      
+      if user != 'All' && organization != 'All'
+      puts 'all else'
+      flag = 4
+      @activities = Activity.where(:org_id => organization, :user_id => user ).order('starttime')
+      end
+                  
+      puts @activities.count
+      puts "flag="
+      puts flag
 
     @orgs = Org.all
     @users = User.all
