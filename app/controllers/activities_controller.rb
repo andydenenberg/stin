@@ -1,42 +1,19 @@
 class ActivitiesController < ApplicationController
 
   def sorted
-      flag = 0
       user = params[:user]
       organization = params[:org]
-      puts user
 
-      if user == 'All' && organization == 'All'  
-        puts '# Both All'
-        flag = 1
-        @activities = Activity.all
-      end        
-            
-      if user == 'All' && organization != 'All'  
-      puts "# User All"
-      flag = 2      
-      @activities = Activity.where(:org_id => organization ).order('starttime')
-      end
-      
-      if organization == 'All' && user != 'All'
-      puts '# Org All'
-      flag = 3
-      @activities = Activity.where(:user_id => user).order('starttime')
-      end
-      
-      if user != 'All' && organization != 'All'
-      puts 'all else'
-      flag = 4
-      @activities = Activity.where(:org_id => organization, :user_id => user ).order('starttime')
-      end
-                  
-      puts @activities.count
-      puts "flag="
-      puts flag
-
-    @orgs = Org.all
-    @users = User.all
-    render :partial => 'index', :layout => false
+      @activities = user == 'All' && organization == 'All' ? Activity.all :
+      @activities = user == 'All' && organization != 'All' ? Activity.where(:org_id => organization ).order('starttime') :
+      @activities = user != 'All' && organization == 'All' ? Activity.where(:user_id => user ).order('starttime') :
+      @activities = user != 'All' && organization != 'All' ? Activity.where(:user_id => user, :org_id => organization ).order('starttime')  :
+      never_get_here
+                                    
+      @user_time = Activity.user_time(user, organization)
+      @orgs = Org.all
+      @users = User.all
+      render :partial => 'index', :layout => false
 
   end
 
@@ -46,6 +23,7 @@ class ActivitiesController < ApplicationController
     @activities = Activity.paginate :page => params[:page], :per_page => 10
     @orgs = Org.all
     @users = User.all
+    @user_time = Activity.user_time
    
     respond_to do |format|
       format.html # index.html.erb

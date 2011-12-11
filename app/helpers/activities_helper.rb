@@ -4,14 +4,14 @@ module ActivitiesHelper
     name = Org.find(:all, :conditions => { :id  => org_id  }).first.organization
   end
 
-  def user_time(user_id)
-    acts = Activity.find(:all, :conditions => { :user_id  => user_id })
-    total_hours = 0
-    acts.each do |act|
-      total_hours += ( act.endtime - act.starttime )/3600
-    end
-    return total_hours
-  end
+#  def user_time(user_id)
+#    acts = Activity.find(:all, :conditions => { :user_id  => user_id })
+#    total_hours = 0
+#    acts.each do |act|
+#      total_hours += ( act.endtime - act.starttime )/3600
+#    end
+#    return total_hours
+#  end
       
   def total_activities
     total_activities = Activity.all.count

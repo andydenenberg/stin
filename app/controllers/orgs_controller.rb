@@ -7,6 +7,8 @@ class OrgsController < ApplicationController
   def index
     @orgs = Org.order(sort_column + " " + sort_direction).paginate :page => params[:page], :per_page => 10, :order => 'organization'
     @users = User.all
+    @logo_size = params[:logo_size] == nil ? :tiny : params[:logo_size]
+  	
 #    @sum_value = Donation.sum("value")
 
     respond_to do |format|
